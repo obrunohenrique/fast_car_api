@@ -1,11 +1,12 @@
 from fastapi import APIRouter
 
-router = APIRouter( #informações interessantes de se adicionar
+router = APIRouter(  # informações interessantes de se adicionar
     prefix='/api/v1/cars',
     tags=['cars'],
 )
 
-@router.get('/') # "/" é o prefix
+
+@router.get('/')  # "/" é o prefix
 def list_cars():
     return {
         'cars': [
