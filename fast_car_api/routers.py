@@ -1,4 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, status
+from fast_car_api.schemas import (
+    CarPubllic,
+    CarSchema
+    )
 
 router = APIRouter(  # informações interessantes de se adicionar
     prefix='/api/v1/cars',
@@ -6,12 +10,10 @@ router = APIRouter(  # informações interessantes de se adicionar
 )
 
 
-@router.get('/')  # "/" é o prefix
-def list_cars():
-    return {
-        'cars': [
-            {'id': 1, 'modelo': 'Marea 20v'},
-            {'id': 2, 'modelo': 'Opala'},
-            {'id': 3, 'modelo': 'Corsa Wind'}
-        ]
-    }
+@router.post(
+        '/',
+        response_model=CarPubllic,
+        status_code=status.HTTP_201_CREATED
+)
+def create_car(car: CarSchema):
+    return car
