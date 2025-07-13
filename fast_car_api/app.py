@@ -3,9 +3,7 @@ from fastapi import FastAPI
 from fast_car_api.routers import router as car_router
 
 app = FastAPI(  # add informações opcionais
-    title='Fast car API',
-    description='pycode modern car api',
-    version='0.1.0'
+    title='Fast car API', description='pycode modern car api', version='0.1.0'
 )
 
 
